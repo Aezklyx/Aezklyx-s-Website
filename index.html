@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aezklyx - Music Producer & Designer</title>
     <style>
-        /* Global reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -15,22 +14,17 @@
         }
 
         body {
-            background-color: #0c0c0c;
+            background: #0c0c0c;
             color: #fff;
-            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Loading Screen */
         #loading-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0c0c0c;
+            inset: 0;
+            background: #0c0c0c;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,35 +41,27 @@
         }
 
         @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
             100% {
                 transform: rotate(360deg);
             }
         }
 
-        /* Header with Image */
         header {
             width: 100%;
-            height: 20vh; /* Responsive height for header */
+            height: 20vh;
             overflow: hidden;
-            position: relative;
         }
 
         header img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
         }
 
-        /* Navbar */
         .navbar {
             display: flex;
             justify-content: center;
-            background-color: #111;
+            background: #111;
             padding: 10px 5%;
             gap: 5%;
         }
@@ -83,24 +69,23 @@
         .navbar a {
             color: #fff;
             text-decoration: none;
-            font-size: calc(14px + 0.5vw); /* Responsive font size */
+            font-size: calc(14px + 0.5vw);
             text-transform: uppercase;
             position: relative;
             padding: 5px 10px;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s, color 0.3s;
         }
 
-        /* Hover effect for navbar */
         .navbar a::before {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
-            width: 0%;
+            width: 0;
             height: 2px;
-            background-color: #FFCC00;
+            background: #FFCC00;
             transform: translateX(-50%);
-            transition: width 0.3s ease, transform 0.3s ease;
+            transition: width 0.3s, transform 0.3s;
         }
 
         .navbar a:hover::before,
@@ -114,24 +99,18 @@
             color: #FFCC00;
         }
 
-        /* Content Section */
         .content {
             padding: 5%;
             text-align: center;
-            font-size: calc(14px + 0.5vw); /* Responsive font size */
+            font-size: calc(14px + 0.5vw);
             color: #bbb;
         }
 
-        .content p {
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
         .footer {
-            background-color: #181818;
+            background: #181818;
             text-align: center;
             padding: 2% 5%;
-            font-size: calc(12px + 0.3vw); /* Responsive font size */
+            font-size: calc(12px + 0.3vw);
             color: #bbb;
             margin-top: auto;
         }
@@ -141,20 +120,18 @@
             text-decoration: none;
         }
 
-        /* Responsive Layout */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                align-items: center;
                 gap: 10px;
             }
 
             header {
-                height: 25vh; /* Slightly taller header for smaller screens */
+                height: 25vh;
             }
 
             .content {
-                font-size: calc(12px + 0.5vw); /* Smaller font size on mobile */
+                font-size: calc(12px + 0.5vw);
             }
 
             .footer {
@@ -164,11 +141,11 @@
 
         @media (max-width: 480px) {
             header {
-                height: 30vh; /* Adjust header height for very small screens */
+                height: 30vh;
             }
 
             .navbar a {
-                font-size: calc(12px + 0.5vw); /* Even smaller text for mobile */
+                font-size: calc(12px + 0.5vw);
             }
 
             .content {
@@ -184,18 +161,14 @@
 </head>
 
 <body>
-
-    <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loading-animation"></div>
     </div>
 
-    <!-- Header Section with Image -->
     <header>
         <img src="main/Icons/banner.png" alt="Header Image">
     </header>
 
-    <!-- Navbar -->
     <div class="navbar">
         <a href="#home" id="home">Home</a>
         <a href="#releases" id="releases">Releases</a>
@@ -204,32 +177,26 @@
         <a href="#contact" id="contact">Contact</a>
     </div>
 
-    <!-- Content Section -->
     <div class="content">
         <p>Welcome to Aezklyx, a place for creativity and innovation in music, design, development, and content creation.</p>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Aezklyx. All rights reserved. | <a href="#">ESC Worldwide Roster</a></p>
     </footer>
 
     <script>
-        // Remove loading screen once the page is fully loaded
         window.onload = () => {
             document.getElementById('loading-screen').style.display = 'none';
-        }
+        };
 
-        // Add "active" class to the clicked link
-        const navLinks = document.querySelectorAll('.navbar a');
-        navLinks.forEach(link => {
+        document.querySelectorAll('.navbar a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.forEach(l => l.classList.remove('active')); // Remove active from all links
-                link.classList.add('active'); // Add active to the clicked link
+                document.querySelectorAll('.navbar a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
             });
         });
     </script>
-
 </body>
 
 </html>
