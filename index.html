@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aezklyx - Music Producer & Designer</title>
     <style>
+        /* Global styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,17 +15,22 @@
         }
 
         body {
-            background: #0c0c0c;
+            background-color: #0c0c0c;
             color: #fff;
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
+        /* Loading Screen */
         #loading-screen {
             position: fixed;
-            inset: 0;
-            background: #0c0c0c;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0c0c0c;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,27 +47,32 @@
         }
 
         @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
             100% {
                 transform: rotate(360deg);
             }
         }
 
+        /* Header */
         header {
             width: 100%;
-            height: 20vh;
             overflow: hidden;
         }
 
         header img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove gaps below the image */
         }
 
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: center;
-            background: #111;
+            background-color: #111;
             padding: 10px 5%;
             gap: 5%;
         }
@@ -73,19 +84,20 @@
             text-transform: uppercase;
             position: relative;
             padding: 5px 10px;
-            transition: transform 0.3s, color 0.3s;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
+        /* Hover effect for navbar */
         .navbar a::before {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
-            width: 0;
+            width: 0%;
             height: 2px;
-            background: #FFCC00;
+            background-color: #FFCC00;
             transform: translateX(-50%);
-            transition: width 0.3s, transform 0.3s;
+            transition: width 0.3s ease, transform 0.3s ease;
         }
 
         .navbar a:hover::before,
@@ -99,6 +111,7 @@
             color: #FFCC00;
         }
 
+        /* Content Section */
         .content {
             padding: 5%;
             text-align: center;
@@ -106,8 +119,9 @@
             color: #bbb;
         }
 
+        /* Footer */
         .footer {
-            background: #181818;
+            background-color: #181818;
             text-align: center;
             padding: 2% 5%;
             font-size: calc(12px + 0.3vw);
@@ -120,14 +134,12 @@
             text-decoration: none;
         }
 
+        /* Responsive Layout */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
+                align-items: center;
                 gap: 10px;
-            }
-
-            header {
-                height: 25vh;
             }
 
             .content {
@@ -141,7 +153,7 @@
 
         @media (max-width: 480px) {
             header {
-                height: 30vh;
+                height: auto;
             }
 
             .navbar a {
@@ -161,14 +173,18 @@
 </head>
 
 <body>
+
+    <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loading-animation"></div>
     </div>
 
+    <!-- Header Section -->
     <header>
         <img src="main/Icons/banner.png" alt="Header Image">
     </header>
 
+    <!-- Navbar -->
     <div class="navbar">
         <a href="#home" id="home">Home</a>
         <a href="#releases" id="releases">Releases</a>
@@ -177,26 +193,32 @@
         <a href="#contact" id="contact">Contact</a>
     </div>
 
+    <!-- Content Section -->
     <div class="content">
         <p>Welcome to Aezklyx, a place for creativity and innovation in music, design, development, and content creation.</p>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Aezklyx. All rights reserved. | <a href="#">ESC Worldwide Roster</a></p>
     </footer>
 
     <script>
+        // Remove loading screen once the page is fully loaded
         window.onload = () => {
             document.getElementById('loading-screen').style.display = 'none';
-        };
+        }
 
-        document.querySelectorAll('.navbar a').forEach(link => {
+        // Add "active" class to the clicked link
+        const navLinks = document.querySelectorAll('.navbar a');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelectorAll('.navbar a').forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                navLinks.forEach(l => l.classList.remove('active')); // Remove active from all links
+                link.classList.add('active'); // Add active to the clicked link
             });
         });
     </script>
+
 </body>
 
 </html>
