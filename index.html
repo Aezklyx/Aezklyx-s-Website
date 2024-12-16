@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aezklyx - Music Producer & Content Creator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            background: linear-gradient(90deg, #ff6ec7, #7353ea);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Menu Icon */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ff6ec7;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .menu-btn img {
+            width: 25px;
+            height: 25px;
+        }
+
+        /* Navbar initially off-screen */
+        nav {
+            width: 0;
+            height: 100vh;
+            background: #ff6ec7;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: width 0.3s ease;
+            padding-top: 1vh;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        nav a {
+            margin: 1vh 0;
+            width: 5vw;
+            height: 5vw;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        nav a img {
+            width: 80%;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            border-radius: 25%;
+        }
+
+        nav a.active {
+            background-color: #fff;
+            border-radius: 25%;
+        }
+
+        main {
+            margin-left: 7vw;
+            padding: 20px;
+            margin-top: 10vh;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #ff6ec7;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ff99d6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ff6ec7;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav a {
+                width: 6vw;
+                height: 6vw;
+            }
+
+            main {
+                margin-left: 9vw;
+                margin-top: 14vh;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                width: 8vw;
+                height: 8vw;
+            }
+
+            main {
+                margin-left: 12vw;
+                margin-top: 15vh;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu button -->
+    <button class="menu-btn" onclick="toggleNavbar()">
+        <img src="menu.png" alt="Menu">
+    </button>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="#about"><img src="C:\Users\ambro\Downloads\Page Icons\Contact.png" alt="About Icon"></a>
+        <a href="#music"><img src="C:\Users\ambro\Downloads\Page Icons\Releases.png" alt="Music Icon"></a>
+        <a href="#contact"><img src="C:\Users\ambro\Downloads\Page Icons\Home.png" alt="Contact Icon"></a>
+    </nav>
+
+    <!-- Main content -->
+    <header>
+        <h1>Aezklyx</h1>
+        <p>Music Producer & Content Creator</p>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <p>Welcome to the official page of Aezklyx, a cutting-edge music producer and content creator...</p>
+        </section>
+
+        <section id="music">
+            <h2>Music</h2>
+            <p>Explore Aezklyx's latest tracks...</p>
+            <a href="#" class="button">Listen Now</a>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For collaborations...</p>
+            <p>Email: <a href="mailto:aezklyx@gmail.com">aezklyx@gmail.com</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Aezklyx | ESC Worldwide Roster</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer>
+    </main>
+
+    <script>
+        function toggleNavbar() {
+            const nav = document.querySelector('nav');
+            const currentWidth = nav.style.width;
+
+            // Toggle navbar width between 0 and 20vw
+            if (currentWidth === '20vw') {
+                nav.style.width = '0';
+            } else {
+                nav.style.width = '20vw';
+            }
+        }
+
+        // Add active class on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelectorAll('nav a').forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
