@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aezklyx - Music Producer & Designer. Explore music, design, and innovation.">
     <title>Aezklyx - Music Producer & Designer</title>
     <style>
-        /* Global reset and base styles */
+        /* ========== Global Styles ========== */
         * {
             margin: 0;
             padding: 0;
@@ -15,43 +16,52 @@
         }
 
         body {
-            background-color: #0c0c0c;
+            background-color: #000000;
             color: #fff;
-            line-height: 1.6;
+            line-height: 1.4;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            padding-top: 0px; /* Adjusted to avoid overlap with navbar */
         }
 
-        /* Header with Image */
+        /* ========== Header Section ========== */
         header {
             width: 100%;
             overflow: hidden;
             position: relative;
+            margin-top: 0px; /* Ensure header starts below fixed navbar */
         }
 
         header img {
             width: 100%;
-            height: auto; /* Keeps aspect ratio */
+            height: auto;
             display: block;
         }
 
-        /* Navbar */
+        /* ========== Navbar ========== */
         .navbar {
             display: flex;
             justify-content: center;
-            background-color: #111;
-            padding: 5px 3%;
-            gap: 3%;
+            align-items: center;
+            padding: 5px 3%; /* Reduced padding */
+            gap: 2%; /* Reduced space between categories */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            backdrop-filter: blur(8px); /* Gaussian blur effect */
+            z-index: 10; /* Ensure navbar stays on top of the header image */
+            height: 45px; /* Reduced height */
+            position: fixed; /* Fixed position */
+            top: 0; /* Stick to the top */
+            width: 100%;
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            font-size: calc(10px + 0.5vw); /* Smaller and responsive font size */
+            font-size: calc(8px + 0.4vw); /* Smaller text size */
             text-transform: uppercase;
             position: relative;
-            padding: 5px;
+            padding: 3px; /* Reduced padding around links */
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
@@ -61,7 +71,7 @@
             bottom: 0;
             left: 50%;
             width: 0%;
-            height: 1.5px; /* Thinner underline */
+            height: 2px;
             background-color: #FFCC00;
             transform: translateX(-50%);
             transition: width 0.3s ease, transform 0.3s ease;
@@ -74,116 +84,121 @@
 
         .navbar a:hover,
         .navbar a.active {
-            transform: scale(1.05);
+            transform: scale(1.1);
             color: #FFCC00;
         }
 
-        /* Content Section */
+        /* ========== Main Content Section ========== */
         .content {
             padding: 3%;
             text-align: center;
-            font-size: calc(10px + 0.4vw); /* Smaller and responsive */
+            font-size: calc(10px + 0.4vw); /* Smaller font size */
             color: #bbb;
+            margin-bottom: 60px; /* Add space for the footer */
         }
 
         .content p {
             margin-bottom: 1rem;
         }
 
-        /* Footer */
-        .footer {
+        /* ========== Footer Section ========== */
+        footer {
             background-color: #181818;
             text-align: center;
-            padding: 1% 3%;
-            font-size: calc(10px + 0.3vw); /* Smaller and responsive font size */
+            padding: 10px 3%; /* Reduced padding for smaller height */
+            font-size: calc(8px + 0.2vw); /* Smaller font size */
             color: #bbb;
-            margin-top: auto;
+            width: 100%;
+            position: fixed; /* Fixed position at the bottom */
+            bottom: 0;
+            left: 0;
+            z-index: 5; /* Ensure footer stays on top of other content */
         }
 
-        .footer a {
+        footer a {
             color: #FFCC00;
             text-decoration: none;
         }
 
-        /* Responsive Layout */
+        /* ========== Responsive Design ========== */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                align-items: center;
-                gap: 10px;
+                height: auto;
+                padding: 3px 5%;
             }
 
+            .navbar a {
+                font-size: calc(7px + 0.5vw); /* Slightly smaller text */
+                padding: 2px; /* Even smaller padding */
+            }
+
+            .content {
+                font-size: calc(10px + 0.5vw);
+            }
+
+            footer {
+                font-size: calc(8px + 0.3vw);
+                padding: 4px 3%; /* Reduced padding for smaller footer */
+            }
+        }
+
+        @media (max-width: 480px) {
             header img {
                 max-width: 100%;
                 height: auto;
             }
 
             .navbar a {
-                font-size: calc(8px + 0.5vw); /* Smaller font size for small screens */
+                font-size: calc(6px + 0.5vw); /* Much smaller text */
+                padding: 1px; /* Smaller padding for mobile */
             }
 
             .content {
-                font-size: calc(9px + 0.5vw); /* Adjusted for mobile */
+                font-size: calc(8px + 0.5vw);
             }
 
-            .footer {
-                font-size: calc(8px + 0.4vw);
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                margin-top: 5px;
-            }
-
-            .navbar a {
-                font-size: calc(7px + 0.5vw);
-            }
-
-            .content {
-                font-size: calc(8px + 0.4vw);
-            }
-
-            .footer {
-                padding: 5%;
-                font-size: calc(8px + 0.4vw);
+            footer {
+                padding: 5px 3%;
+                font-size: calc(7px + 0.3vw); /* Even smaller font size for mobile */
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header Section with Image -->
+    <!-- Header -->
     <header>
-        <img src="main/Icons/banner.png" alt="Header Image">
+        <img src="main\icons\banner.png" alt="Aezklyx Header">
     </header>
 
     <!-- Navbar -->
-    <div class="navbar">
+    <nav class="navbar">
         <a href="#home" id="home">Home</a>
         <a href="#releases" id="releases">Releases</a>
         <a href="#gallery" id="gallery">Gallery</a>
         <a href="#repositories" id="repositories">Repositories</a>
         <a href="#contact" id="contact">Contact</a>
-    </div>
+    </nav>
 
-    <!-- Content Section -->
-    <div class="content">
-        <p>Welcome to Aezklyx, a place for creativity and innovation in music, design, development, and content creation.</p>
-    </div>
+    <!-- Main Content -->
+    <main class="content">
+        <p><a href="main\videos\video.mp4" id="Prueba de video">video test</a></p>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Aezklyx. All rights reserved. | <a href="#">ESC Worldwide Roster</a></p>
+    <footer>
+        <p>Aezklyx | ESC Worldwide Roster</p>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Add "active" class to the clicked link
+        // Add "active" class to the clicked navbar link
         const navLinks = document.querySelectorAll('.navbar a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.forEach(l => l.classList.remove('active')); // Remove active from all links
-                link.classList.add('active'); // Add active to the clicked link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
             });
         });
     </script>
