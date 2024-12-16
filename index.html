@@ -32,7 +32,7 @@
 
         header img {
             width: 100%;
-            height: auto; /* Maintains aspect ratio */
+            height: auto; /* Keeps aspect ratio */
             display: block;
         }
 
@@ -41,17 +41,17 @@
             display: flex;
             justify-content: center;
             background-color: #111;
-            padding: 10px 5%;
-            gap: 5%;
+            padding: 5px 3%;
+            gap: 3%;
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            font-size: calc(14px + 0.5vw);
+            font-size: calc(10px + 0.5vw); /* Smaller and responsive font size */
             text-transform: uppercase;
             position: relative;
-            padding: 5px 10px;
+            padding: 5px;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
@@ -61,7 +61,7 @@
             bottom: 0;
             left: 50%;
             width: 0%;
-            height: 2px;
+            height: 1.5px; /* Thinner underline */
             background-color: #FFCC00;
             transform: translateX(-50%);
             transition: width 0.3s ease, transform 0.3s ease;
@@ -74,15 +74,15 @@
 
         .navbar a:hover,
         .navbar a.active {
-            transform: scale(1.1);
+            transform: scale(1.05);
             color: #FFCC00;
         }
 
         /* Content Section */
         .content {
-            padding: 5%;
+            padding: 3%;
             text-align: center;
-            font-size: calc(14px + 0.5vw);
+            font-size: calc(10px + 0.4vw); /* Smaller and responsive */
             color: #bbb;
         }
 
@@ -94,8 +94,8 @@
         .footer {
             background-color: #181818;
             text-align: center;
-            padding: 2% 5%;
-            font-size: calc(12px + 0.3vw);
+            padding: 1% 3%;
+            font-size: calc(10px + 0.3vw); /* Smaller and responsive font size */
             color: #bbb;
             margin-top: auto;
         }
@@ -103,6 +103,51 @@
         .footer a {
             color: #FFCC00;
             text-decoration: none;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            header img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .navbar a {
+                font-size: calc(8px + 0.5vw); /* Smaller font size for small screens */
+            }
+
+            .content {
+                font-size: calc(9px + 0.5vw); /* Adjusted for mobile */
+            }
+
+            .footer {
+                font-size: calc(8px + 0.4vw);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                margin-top: 5px;
+            }
+
+            .navbar a {
+                font-size: calc(7px + 0.5vw);
+            }
+
+            .content {
+                font-size: calc(8px + 0.4vw);
+            }
+
+            .footer {
+                padding: 5%;
+                font-size: calc(8px + 0.4vw);
+            }
         }
     </style>
 </head>
