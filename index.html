@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aezklyx - Music Producer & Designer</title>
     <style>
-        /* Global reset and base styles */
+        /* Global styles */
         * {
             margin: 0;
             padding: 0;
@@ -56,41 +56,38 @@
             }
         }
 
-        /* Header with Image */
+        /* Header */
         header {
-            width: 100%; /* Ensure the header spans the full width */
-            height: 250px; /* Set the height of the header */
+            width: 100%;
             overflow: hidden;
-            position: relative;
         }
 
         header img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the image covers the header area without stretching */
-            object-position: center; /* Centers the image */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove gaps below the image */
         }
 
-        /* Navbar under the Header */
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: center;
             background-color: #111;
-            padding: 10px 0; /* Reduced padding for a thinner navbar */
-            gap: 40px;
+            padding: 10px 5%;
+            gap: 5%;
         }
 
         .navbar a {
-            color: #fff; /* Default text color */
+            color: #fff;
             text-decoration: none;
-            font-size: 16px;  /* Reduced font size for thinner navbar */
+            font-size: calc(14px + 0.5vw);
             text-transform: uppercase;
             position: relative;
-            padding: 5px 10px;  /* Reduced padding */
-            transition: transform 0.3s ease, color 0.3s ease; /* Added transition for color */
+            padding: 5px 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        /* Hover effect with yellow-orange underline growing from the center */
+        /* Hover effect for navbar */
         .navbar a::before {
             content: '';
             position: absolute;
@@ -98,58 +95,78 @@
             left: 50%;
             width: 0%;
             height: 2px;
-            background-color: #FFCC00; /* Set underline color to yellow-orange */
-            transform: translateX(-50%); /* Position the underline at the center */
+            background-color: #FFCC00;
+            transform: translateX(-50%);
             transition: width 0.3s ease, transform 0.3s ease;
         }
 
-        /* On hover and active, make the text color the same as the underline */
         .navbar a:hover::before,
         .navbar a.active::before {
-            width: 100%; /* On hover or active, the underline expands to full width */
+            width: 100%;
         }
 
         .navbar a:hover,
         .navbar a.active {
             transform: scale(1.1);
-            color: #FFCC00; /* Change text color to yellow-orange on hover */
+            color: #FFCC00;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 5%;
+            text-align: center;
+            font-size: calc(14px + 0.5vw);
+            color: #bbb;
         }
 
         /* Footer */
         .footer {
             background-color: #181818;
             text-align: center;
-            padding: 20px;
-            font-size: 14px;
+            padding: 2% 5%;
+            font-size: calc(12px + 0.3vw);
             color: #bbb;
-            margin-top: auto; /* Ensures footer is always at the bottom */
+            margin-top: auto;
         }
 
         .footer a {
-            color: #FFCC00; /* Yellow-orange color for footer links */
+            color: #FFCC00;
             text-decoration: none;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
         }
 
         /* Responsive Layout */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 20px;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .content {
+                font-size: calc(12px + 0.5vw);
+            }
+
+            .footer {
+                font-size: calc(10px + 0.4vw);
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                height: auto;
             }
 
             .navbar a {
-                font-size: 14px;  /* Adjusted font size for mobile */
+                font-size: calc(12px + 0.5vw);
+            }
+
+            .content {
+                font-size: calc(10px + 0.5vw);
+            }
+
+            .footer {
+                padding: 5%;
+                font-size: calc(10px + 0.4vw);
             }
         }
     </style>
@@ -162,13 +179,12 @@
         <div class="loading-animation"></div>
     </div>
 
-    <!-- Header Section with Image -->
+    <!-- Header Section -->
     <header>
-        <!-- Replace with your image -->
-        <img src="icons\banner.png" alt="Header Image">
+        <img src="main/Icons/banner.png" alt="Header Image">
     </header>
 
-    <!-- Navbar under the Header with New Categories -->
+    <!-- Navbar -->
     <div class="navbar">
         <a href="#home" id="home">Home</a>
         <a href="#releases" id="releases">Releases</a>
@@ -177,12 +193,12 @@
         <a href="#contact" id="contact">Contact</a>
     </div>
 
-    <!-- Content Section (Placeholder) -->
-    <div style="padding: 40px; text-align: center; font-size: 20px; color: #bbb;">
+    <!-- Content Section -->
+    <div class="content">
         <p>Welcome to Aezklyx, a place for creativity and innovation in music, design, development, and content creation.</p>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Aezklyx. All rights reserved. | <a href="#">ESC Worldwide Roster</a></p>
     </footer>
